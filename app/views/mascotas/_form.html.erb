@@ -1,0 +1,60 @@
+<%= form_with(model: mascota) do |form| %>
+  <% if mascota.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(mascota.errors.count, "error") %> prohibited this mascota from being saved:</h2>
+
+      <ul>
+        <% mascota.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nombre, style: "display: block" %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+  <%= form.label :apodo, style: "display: block" %>
+  <%= form.radio_button :apodo, true %> Sí
+  <%= form.radio_button :apodo, false %> No
+</div>
+
+
+  <div>
+    <%= form.label :tipo, style: "display: block" %>
+    <%= form.select :tipo, @tipos_mascota %>
+  </div>
+
+  <div>
+    <%= form.label :descripcion, style: "display: block" %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div>
+    <%= form.label :ciudad, style: "display: block" %>
+    <%= form.select :ciudad, @ciudades %>
+  </div>
+
+  <div>
+    <%= form.label :fecha, style: "display: block" %>
+    <%= form.date_field :fecha %>
+  </div>
+
+  <div>
+  <%= form.label :cualidad, style: "display: block" %>
+  <% ['Le gusta correr en el parque.', 'Disfruta nadar en el lago.', 'Prefiere dormir durante el día.',
+     'Siempre está listo para comer.', 'Le encanta volar (aplicable para aves).', 'Es amigable con otros animales.',
+     'Le gusta jugar con juguetes.', 'Disfruta de los paseos largos.', 'Le encanta ser acariciado.',
+     'Es curioso y le gusta explorar.'].each do |option| %>
+    <%= form.check_box :cualidad, { multiple: true }, option %>
+    <%= option %><br>
+  <% end %>
+</div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

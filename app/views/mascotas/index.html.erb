@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mascotas</h1>
+
+<div id="mascotas">
+  <% @mascotas.each do |mascota| %>
+    <%= render mascota %>
+    <p>
+      <%= link_to "Show this mascota", mascota %>
+    </p>
+  <% end %>
+</div>
+
+<%= raw pagy_nav(@pagy) %>
+
+<%= link_to "New mascota", new_mascota_path %>

@@ -1,0 +1,56 @@
+<div id="<%= dom_id mascota %>">
+  <p>
+    <strong>Nombre:</strong>
+    <%= mascota.nombre %>
+  </p>
+
+  <p>
+    <strong>Apodo:</strong>
+    <% if mascota.apodo %>
+      Sí
+    <% else %>
+      No
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Tipo:</strong>
+    <%= mascota.tipo %>
+  </p>
+
+  <p>
+    <strong>Descripcion:</strong>
+    <%= mascota.descripcion %>
+  </p>
+
+  <p>
+    <strong>Ciudad:</strong>
+    <%= mascota.ciudad %>
+  </p>
+
+  <p>
+    <strong>Fecha:</strong>
+    <%= mascota.fecha %>
+  </p>
+
+  <p>
+    <strong>Cualidad:</strong>
+    <%= mascota.cualidad %>
+  </p>
+
+  <!-- app/views/mascotas/show.html.erb -->
+  <p>
+    <strong>Nombre del creador:</strong>
+    <%= mascota.usuario.nombre %>
+  </p>
+
+  <p>
+    <strong>Email del creador:</strong>
+    <%= mascota.usuario.email %>
+  </p>
+
+  <p>
+    <strong>Teléfono del creador:</strong>
+    <%= mascota.usuario.telefono %>
+  </p>
+</div>
